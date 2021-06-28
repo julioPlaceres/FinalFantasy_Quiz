@@ -12,7 +12,6 @@ body{
     color: #001b44;
     text-align: center;
     padding-top: 20px;
-    border: 2px blue dashed;
 }
 
 #startBtn{
@@ -33,7 +32,7 @@ body{
     top: 0;
     right: 0;
     color: black;
-    width: 60px;
+    width: 120px;
     height: 50px;
 }
 
@@ -42,23 +41,18 @@ body{
 }
 
 .visible{
-    visibility: visible;
+    display: block;
 }
 
 .hidden{
-    visibility:hidden;
+    display: none;
 }
 
 #questions{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 2px dashed red;
     width: fit-content;
-}
-
-#questionTitle{
-    border: 2px dashed yellow;
 }
 
 .choices{
@@ -70,4 +64,9 @@ body{
     visibility: visible;
     color: black;
     background-color: orange;
+}
+
+#scoreResult{
+   font-size: 20px;
+   padding-bottom: 10px;
 }

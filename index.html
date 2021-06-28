@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="resetSheet" href="./assets/css/reset.css"/>
-    <link rel="styleSheet" href="./assets/css/style.css"/>
+    <link rel="resetSheet" href="./assets/css/reset.css" />
+    <link rel="styleSheet" href="./assets/css/style.css" />
     <title>FF Quiz</title>
 </head>
+
 <body>
     <main>
         <!--Welcome title for the questionare-->
@@ -21,23 +23,34 @@
         </div>
 
         <!--Timer-->
-        <div class="hidden" id="questionTimer">
-            <h4 class="timer-counter"></h2>
+        <div id="questionTimer" class="hidden">
+            <h4 class="timer-counter">
+                </h2>
         </div>
-        
+
         <!--Here is where Questions text will appear-->
-        <div class="hidden" id="questions">
+        <div id="questions" class="hidden">
             <h5 id="questionTitle"></h5>
             <div id="choices"></div>
         </div>
 
         <!--Here is where the status of your choise will appear-->
-        <div>
+        <div id="questionStatus" class="hidden">
             <h6 class="question-status" id="questionStatus"></h6>
         </div>
+
+        <!--End Screen-->
+        <div id="endScreen" class="hidden">
+            <form id="todo-form" method="POST">
+                <h6 id="scoreResult"></h6>
+                <label for="userInitials">Add a Todo: </label>
+                <input type="text" placeholder="Please enter your Initials" name="userInitials" id="userInitials" />
+              </form>
+        </div>
     </main>
-    
+
     <script src="./assets/js/questionsScript.js"></script>
     <script src="./assets/js/logicScript.js"></script>
 </body>
+
 </html>
