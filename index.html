@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="resetSheet" href="./assets/css/reset.css"/>
+    <link rel="styleSheet" href="./assets/css/style.css"/>
+    <title>FF Quiz</title>
 </head>
 <body>
+    <main>
+        <!--Welcome title for the questionare-->
+        <div class="visible" id="headerTitle">
+            <h1>Welcome to the Final Fantasy Quiz!</h1>
+            <h2>Here your knoweldge will be tested to see if you are a true fan!</h2>
+
+            <button class="start-btn" id="startBtn">
+                <h3>Start!</h3>
+            </button>
+        </div>
+
+        <!--Timer-->
+        <div class="hidden" id="questionTimer">
+            <h4 class="timer-counter"></h2>
+        </div>
+        
+        <!--Here is where Questions text will appear-->
+        <div class="hidden" id="questions">
+            <h5 id="questionTitle"></h5>
+            <div id="choices"></div>
+        </div>
+
+        <!--Here is where the status of your choise will appear-->
+        <div>
+            <h6 class="question-status" id="questionStatus"></h6>
+        </div>
+    </main>
     
+    <script src="./assets/js/questionsScript.js"></script>
+    <script src="./assets/js/logicScript.js"></script>
 </body>
 </html>
