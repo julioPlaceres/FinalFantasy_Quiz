@@ -104,6 +104,11 @@ function GetQuestion() {
 }
 
 function checkAnswer(event) {
+  //It will prevent to continue if question reached the end
+  if(currentQuestionIndex == Questions.length){
+    return;
+  }
+
   // Gets the target the user clicked on
   var element = event.target;
 
@@ -143,5 +148,3 @@ function displayEndScreen() {
 
   scoreResult.textContent = "Your score is: " + counter; 
 }
-
-

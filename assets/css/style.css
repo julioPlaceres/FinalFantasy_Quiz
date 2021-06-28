@@ -66,7 +66,28 @@ body{
     background-color: orange;
 }
 
-#scoreResult{
+.score-result{
    font-size: 20px;
    padding-bottom: 10px;
+}
+
+.submit-form{
+    color: white;
+    background-color: blue;
+    border-radius: 10px;
+    width: 80px;
+    height: 35px;
+    margin-top: 25px;
+}
+
+#todo-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.score-label{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
