@@ -10,6 +10,7 @@ body{
     color: #001b44;
     text-align: center;
     padding-top: 20px;
+    border: 5px solid purple;
 }
 
 #startBtn{
@@ -95,4 +96,13 @@ body{
     flex-direction: row;
     align-items: flex-start;
     align-self: flex-start;
+    border: 2px solid blue;
+}
+
+.main-Header{
+    border: 2px dashed green;
+}
+
+.buttons-Div{
+    border: 2px solid orange;
 }

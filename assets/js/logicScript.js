@@ -16,17 +16,20 @@ var questionChoices = document.querySelector("#choices");
 var endScreen = document.querySelector("#endScreen");
 var scoreResult = document.querySelector("#scoreResult")
 var submitBtn = document.querySelector("#submitForm");
+var initialsEl = document.querySelector("#userInitials")
 var currentQuestionIndex = 0;
 var timer;
 var counter;
 var isWin = false;
-const secondsPerQuestion = 5;
 var scores = [];
+const secondsPerQuestion = 5;
+
+
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
 questionChoices.addEventListener("click", checkAnswer);
-submitBtn.addEventListener("click", saveData);
+submitBtn.addEventListener("click", saveHighscore);
 
 // Hide Welcome message, Display 1st question and start Timer
 function startGame(event) {
@@ -157,20 +160,24 @@ function displayEndScreen() {
 
 // Will display message to user if initials are not entered
 // otherwise will save it to local storage as Json object
-function saveData(event){
-  event.preventDefault();
-
-  var userName = document.querySelector("#userInitials").value;
-
-  if(!userName){
-    alert("Please provide initials");
-    return;
+function saveHighscore() {
+  // get value of input box
+  var initials = initialsEl.value.toUpperCase().trim();
+  // make sure value wasn't empty
+  if (initials !== "") {
+    // get saved scores from localstorage, or if not any, set to empty array
+    var highscores =
+      JSON.parse(window.localStorage.getItem("scores")) || [];
+    // format new score object for current user
+    var newScore = {
+      score: counter,
+      initials: initials
+    };
+    // save to localstorage
+    highscores.push(newScore);
+    window.localStorage.setItem("scores", JSON.stringify(highscores));
+    
+    // redirect to next page
+    window.location.replace("./highscore.html");
   }
-
-  let highScore = {
-    initials: userName.toUpperCase().trim(),
-    score: counter,
-  };
-  scores.push(highScore);
-  localStorage.setItem("scores", JSON.stringify(scores));
 }
