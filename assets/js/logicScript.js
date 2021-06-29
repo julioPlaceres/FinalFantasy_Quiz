@@ -22,9 +22,7 @@ var timer;
 var counter;
 var isWin = false;
 var scores = [];
-const secondsPerQuestion = 5;
-
-
+const secondsPerQuestion = 100;
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
@@ -50,7 +48,7 @@ function startTimer() {
   counter = Questions.length * secondsPerQuestion;
 
   timer = setInterval(function () {
-    counter--; 
+    counter--;
 
     // Checks if timer has run out
     if (counter <= 0) {
@@ -115,7 +113,7 @@ function GetQuestion() {
 
 function checkAnswer(event) {
   //It will prevent to continue if question reached the end
-  if(currentQuestionIndex == Questions.length){
+  if (currentQuestionIndex == Questions.length) {
     return;
   }
 
@@ -123,7 +121,7 @@ function checkAnswer(event) {
   var element = event.target;
 
   //Checks the target is a button and gets the value of it
-  if (element.matches("button")) {                                                              
+  if (element.matches("button")) {
     var value = element.getAttribute("value");
     var answer = Questions[currentQuestionIndex].answer;
 
@@ -155,16 +153,22 @@ function displayEndScreen() {
   // Displays initials for user to save score
   endScreen.removeAttribute("class", "hidden");
 
-  scoreResult.textContent = "Your score is: " + counter; 
+  scoreResult.textContent = "Your score is: " + counter;
 }
 
 // Will display message to user if initials are not entered
 // otherwise will save it to local storage as Json object
-function saveHighscore() {
+function saveHighscore(event) {
+  event.preventDefault();
+
   // get value of input box
   var initials = initialsEl.value.toUpperCase().trim();
   // make sure value wasn't empty
-  if (initials !== "") {
+  if (initials == "") {
+    window.alert("Please enter initials");
+    return;
+  }
+  else {
     // get saved scores from localstorage, or if not any, set to empty array
     var highscores =
       JSON.parse(window.localStorage.getItem("scores")) || [];
@@ -176,8 +180,8 @@ function saveHighscore() {
     // save to localstorage
     highscores.push(newScore);
     window.localStorage.setItem("scores", JSON.stringify(highscores));
-    
+
     // redirect to next page
-    window.location.replace("./highscore.html");
+    window.location.href = "./highscore.html";
   }
 }

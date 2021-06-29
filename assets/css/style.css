@@ -10,7 +10,11 @@ body{
     color: #001b44;
     text-align: center;
     padding-top: 20px;
-    border: 5px solid purple;
+}
+
+.main-page{
+    display: flex;
+    justify-content: center;
 }
 
 #startBtn{
@@ -50,13 +54,11 @@ body{
 #questions{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     width: fit-content;
 }
 
 .choices{
-    display: flex;
-    justify-content: center;
     padding-right: 10px;
     border-radius: 5px;
     margin: 10px;
@@ -96,13 +98,31 @@ body{
     flex-direction: row;
     align-items: flex-start;
     align-self: flex-start;
-    border: 2px solid blue;
 }
 
-.main-Header{
-    border: 2px dashed green;
+#questions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.buttons-Div{
-    border: 2px solid orange;
+#bodyId{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
+
+.high-scores{
+    align-self: center;
+}
+
+#goBack, #clearResult{
+    margin-top: 10px;
+    width: 120px;
+    height: 30px;
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
+
