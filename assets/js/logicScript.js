@@ -1,6 +1,7 @@
 // Global variables
 // Welcome Message at screen load
 var welcomeTitle = document.querySelector("#headerTitle");
+var highSocreLimk = document.querySelector("#highScores");
 // Start button that begins the game
 var startBtn = document.querySelector("#startBtn");
 // Timer div & Timer counter
@@ -14,20 +15,26 @@ var questionChoices = document.querySelector("#choices");
 // End screen elements
 var endScreen = document.querySelector("#endScreen");
 var scoreResult = document.querySelector("#scoreResult")
+var submitBtn = document.querySelector("#submitForm");
 var currentQuestionIndex = 0;
 var timer;
 var counter;
 var isWin = false;
 const secondsPerQuestion = 5;
+var scores = [];
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
 questionChoices.addEventListener("click", checkAnswer);
+submitBtn.addEventListener("click", saveData);
 
 // Hide Welcome message, Display 1st question and start Timer
 function startGame(event) {
   welcomeTitle.removeAttribute("class", "visible");
   welcomeTitle.textContent = "";
+
+  highSocreLimk.removeAttribute("class", "visible");
+  highSocreLimk.textContent = "";
 
   timerElement.setAttribute("class", "visible");
   titleElement.setAttribute("class", "visible");
@@ -125,7 +132,6 @@ function checkAnswer(event) {
       // Penalize user for incorrect answer
       counter = counter - secondsPerQuestion;
     }
-
     //Increment current index and retrieve next set of questions
     currentQuestionIndex++;
     GetQuestion();
@@ -147,4 +153,24 @@ function displayEndScreen() {
   endScreen.removeAttribute("class", "hidden");
 
   scoreResult.textContent = "Your score is: " + counter; 
+}
+
+// Will display message to user if initials are not entered
+// otherwise will save it to local storage as Json object
+function saveData(event){
+  event.preventDefault();
+
+  var userName = document.querySelector("#userInitials").value;
+
+  if(!userName){
+    alert("Please provide initials");
+    return;
+  }
+
+  let highScore = {
+    initials: userName.toUpperCase().trim(),
+    score: counter,
+  };
+  scores.push(highScore);
+  localStorage.setItem("scores", JSON.stringify(scores));
 }
