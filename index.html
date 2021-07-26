@@ -5,19 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="resetSheet" href="./assets/css/reset.css" />
     <link rel="styleSheet" href="./assets/css/style.css" />
     <title>FF Quiz</title>
 </head>
 
-<body>
+<body class="imgbox center-fit">
     <main class="main-page">
 
         <!--Welcome title for the questionare-->
         <div class="visible" id="headerTitle">
             <a id="highScores" class="high-scores visible" href="./highscore.html">Highscores</a>
-            <h1>Welcome to the Final Fantasy Quiz!</h1>
-            <h2>Here your knoweldge will be tested to see if you are a true fan!</h2>
+            <h1 class="text-white">Welcome to the Final Fantasy Quiz!</h1>
+            <h2 class="text-white">Here your knoweldge will be tested to see if you are a true fan!</h2>
 
             <button class="start-btn" id="startBtn">
                 <h3>Start!</h3>
@@ -47,6 +49,8 @@
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./assets/js/questionsScript.js"></script>
     <script src="./assets/js/logicScript.js"></script>
 
