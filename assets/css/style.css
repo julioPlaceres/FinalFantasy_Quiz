@@ -10,8 +10,8 @@ body{
     background-image: url(../images/ff-main-menu.jpg);
     background-size:cover;
     background-position:top;
-    height: 100vh;
-    width: 100vw;    
+    height: auto;
+    width: 100%;    
     background-position: center;
     background-repeat: no-repeat;
     /* margin: auto; */
